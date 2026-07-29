@@ -4,7 +4,6 @@ from flask import Flask, render_template, request
 
 from main import create_greeting
 
-
 app = Flask(__name__)
 
 
