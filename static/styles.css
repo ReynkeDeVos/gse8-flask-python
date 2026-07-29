@@ -10,9 +10,9 @@
   --coral: #e65032;
   --green: #147a50;
   --shadow: 0 24px 70px rgb(23 33 63 / 12%);
-  --display: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", sans-serif;
-  --body: Inter, Aptos, "Segoe UI", sans-serif;
-  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --display: 'Arial Narrow', 'Roboto Condensed', 'Helvetica Neue', sans-serif;
+  --body: Inter, Aptos, 'Segoe UI', sans-serif;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
 }
 
 * {
@@ -160,7 +160,7 @@ h1 {
   height: 8px;
   border-top: 2px solid var(--blue);
   border-right: 2px solid var(--blue);
-  content: "";
+  content: '';
   transform: rotate(45deg);
 }
 
@@ -193,7 +193,7 @@ h1 {
   width: 42%;
   height: 55%;
   border: 2px solid var(--coral);
-  content: "";
+  content: '';
 }
 
 .form-card,
@@ -292,7 +292,7 @@ input:focus-visible {
   box-shadow: 0 0 0 3px rgb(21 70 210 / 18%);
 }
 
-input[aria-invalid="true"] {
+input[aria-invalid='true'] {
   border-color: var(--coral);
 }
 

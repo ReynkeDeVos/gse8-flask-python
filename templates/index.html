@@ -3,15 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Eine kleine Flask-Anwendung für das Deployment-Labor."
-    />
+    <meta name="description" content="Eine kleine Flask-Anwendung für das Deployment-Labor." />
     <title>Deployment-Labor · Flask</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   </head>
   <body>
     <main class="page-shell">
@@ -28,8 +22,8 @@
           <p class="eyebrow">HTTP-Experiment</p>
           <h1>Eine Begrüßung geht online.</h1>
           <p class="lede">
-            Schicke zwei Werte an den Server. Flask nimmt die Anfrage entgegen,
-            Python baut die Antwort – und Render macht sie öffentlich erreichbar.
+            Schicke zwei Werte an den Server. Flask nimmt die Anfrage entgegen, Python baut die
+            Antwort – und Render macht sie öffentlich erreichbar.
           </p>
 
           <ol class="request-path" aria-label="Weg der Anfrage">
@@ -75,15 +69,11 @@
                   autocomplete="given-name"
                   placeholder="Ada"
                   required
-                  {% if errors.first_name %}
-                    aria-describedby="first-name-error"
-                    aria-invalid="true"
-                  {% endif %}
+                  aria-describedby="{{ 'first-name-error' if errors.first_name else '' }}"
+                  aria-invalid="{{ 'true' if errors.first_name else 'false' }}"
                 />
                 {% if errors.first_name %}
-                  <p class="field-error" id="first-name-error">
-                    {{ errors.first_name }}
-                  </p>
+                <p class="field-error" id="first-name-error">{% print errors.first_name %}</p>
                 {% endif %}
               </div>
 
@@ -97,15 +87,11 @@
                   autocomplete="family-name"
                   placeholder="Lovelace"
                   required
-                  {% if errors.last_name %}
-                    aria-describedby="last-name-error"
-                    aria-invalid="true"
-                  {% endif %}
+                  aria-describedby="{{ 'last-name-error' if errors.last_name else '' }}"
+                  aria-invalid="{{ 'true' if errors.last_name else 'false' }}"
                 />
                 {% if errors.last_name %}
-                  <p class="field-error" id="last-name-error">
-                    {{ errors.last_name }}
-                  </p>
+                <p class="field-error" id="last-name-error">{% print errors.last_name %}</p>
                 {% endif %}
               </div>
 
@@ -124,21 +110,19 @@
             <div class="response-meta">
               <p id="response-heading">Server-Antwort</p>
               {% if greeting %}
-                <span class="status status--success">200 OK</span>
+              <span class="status status--success">200 OK</span>
               {% else %}
-                <span class="status">Wartet auf Anfrage</span>
+              <span class="status">Wartet auf Anfrage</span>
               {% endif %}
             </div>
 
             {% if greeting %}
-              <p class="greeting">{{ greeting }}</p>
-              <p class="response-note">
-                Diese Zeichenkette wurde gerade auf dem Server erzeugt.
-              </p>
+            <p class="greeting">{% print greeting %}</p>
+            <p class="response-note">Diese Zeichenkette wurde gerade auf dem Server erzeugt.</p>
             {% else %}
-              <p class="empty-response">
-                Hier erscheint die Antwort, sobald du das Formular absendest.
-              </p>
+            <p class="empty-response">
+              Hier erscheint die Antwort, sobald du das Formular absendest.
+            </p>
             {% endif %}
           </section>
         </div>
